@@ -6,13 +6,15 @@ public class WizardService
     {
         var textEncrypted = ReverseAlgorithm(textToEncrypt);
         textEncrypted = CyclicAlgorithm(textEncrypted);
+        textEncrypted = RecursiveAlgorithm(textEncrypted);
         return textEncrypted;
     }
 
     public async Task<string> Decrypt(string text)
     {
-        var textDecrypted = CyclicAlgorithm(text, true);
+        var textDecrypted = RecursiveAlgorithm(text, true);
         textDecrypted = ReverseAlgorithm(textDecrypted);
+        textDecrypted = CyclicAlgorithm(textDecrypted, true);
         return textDecrypted;
     }
 

@@ -173,7 +173,7 @@ public class WizardServiceTest
 
     private string GetTextToDecrypt()
     {
-        return "ebiarp";
+        return "gdkctr";
     }
 
     private void SoAreEquals(string textEncrypted, string resultTextEncrypted)
@@ -189,7 +189,7 @@ public class WizardServiceTest
 
     private string GetTextEncrypted()
     {
-        return "ebiarp";
+        return "gdkctr";
     }
 
     private string GetTextToEncrypt()
