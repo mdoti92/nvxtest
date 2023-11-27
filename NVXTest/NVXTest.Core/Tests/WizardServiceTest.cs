@@ -27,50 +27,6 @@ public class WizardServiceTest
         SoAreEquals(textDecrypted, resultTextDecrypted);
     }
 
-    [TestMethod]
-    public void RecursionAlgorithmTest()
-    {
-        var text = GetText();
-        var textToObtain = GetTextToObtain();
-
-        var resultService = GetSericeRecursiveAlgorithm(text);
-        
-        SoAreEquals(textToObtain, resultService);
-    }
-
-    [TestMethod]
-    public void RecursionReverseAlgorithmTest()
-    {
-        var text = GetTextForRecursiveAlgorithm();
-        var textToObtain = GetTextToObtenForRecursiveAlgorithm();
-
-        var resultService = GetSericeRecursiveReverseAlgorithm(text);
-        
-        SoAreEquals(textToObtain, resultService);
-    }
-
-    private string GetTextToObtenForRecursiveAlgorithm()
-    {
-        return GetText();
-    }
-
-    private string GetTextForRecursiveAlgorithm()
-    {
-        return GetTextToObtain();
-    }
-
-    private string GetSericeRecursiveReverseAlgorithm(string text)
-    {
-        var wizardSerice = new WizardService();
-        return wizardSerice.RecursiveAlgorithm(text, true);
-    }
-
-    private string GetSericeRecursiveAlgorithm(string text)
-    {
-        var wizardSerice = new WizardService();
-        return wizardSerice.RecursiveAlgorithm(text);
-    }
-
     private string GetTextToObtain()
     {
         return "rtwgdc";

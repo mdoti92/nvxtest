@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NVXTest.CyclicAlgorithm\NVXTest.CyclicAlgorithm.csproj" />
+      <ProjectReference Include="..\NVXTest.Recursion\NVXTest.Recursion.csproj" />
       <ProjectReference Include="..\NVXTest.ReverseAlgorithm\NVXTest.ReverseAlgorithm.csproj" />
     </ItemGroup>
 
