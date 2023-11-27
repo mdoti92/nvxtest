@@ -39,6 +39,61 @@ public class WizardServiceTest
         SoAreEquals(reversedText, resultServiceReversed);
     }
 
+    [TestMethod]
+    public async Task CyclicAlgorithmTest()
+    {
+        var text = GetTextForCyclicAlgorithm();
+        var textChanged = GetTextChangedWithCyclicAlgorithm();
+
+        var resultService = GetServiceCyclicAlgorithm(text);
+        
+        SoAreEquals(textChanged, resultService);
+    }
+
+    [TestMethod]
+    public async Task CyclicInvertedAlgorithmTest()
+    {
+        var text = GetTextForCyclicInvertedAlgorithm();
+        var textChanged = GetTextChangedWithCyclicInvertedAlgorithm();
+
+        var resultService = GetServiceCyclicInvertedAlgorithm(text);
+        
+        SoAreEquals(textChanged, resultService);
+    }
+
+    private string GetServiceCyclicInvertedAlgorithm(string text)
+    {
+        var wizardService = new WizardService();
+
+        return wizardService.CyclicInvertedAlgorithm(text);
+    }
+
+    private string GetTextChangedWithCyclicInvertedAlgorithm()
+    {
+        return "maceniworu";
+    }
+
+    private string GetTextForCyclicInvertedAlgorithm()
+    {
+        return "mecinowura";
+    }
+
+    private string GetServiceCyclicAlgorithm(string text)
+    {
+        var wizardService = new WizardService();
+        return wizardService.CyclicAlgorithm(text);
+    }
+
+    private string GetTextForCyclicAlgorithm()
+    {
+        return "maceniworu";
+    }
+
+    private string GetTextChangedWithCyclicAlgorithm()
+    {
+        return "mecinowura";
+    }
+
     private string GetText()
     {
         return "prueba";
@@ -69,7 +124,7 @@ public class WizardServiceTest
 
     private string GetTextToDecrypt()
     {
-        return "abeurp";
+        return "ebiarp";
     }
 
     private void SoAreEquals(string textEncrypted, string resultTextEncrypted)
@@ -85,7 +140,7 @@ public class WizardServiceTest
 
     private string GetTextEncrypted()
     {
-        return "prueba";
+        return "ebiarp";
     }
 
     private string GetTextToEncrypt()
