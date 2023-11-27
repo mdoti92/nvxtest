@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVXTest.Api", "NVXTest.Api\NVXTest.Api.csproj", "{A0B19354-9A66-4E15-9B34-E41E93534CAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVXTest.Core", "NVXTest.Core\NVXTest.Core.csproj", "{8C456B7E-6292-494B-AE2D-60D1013A2384}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{A0B19354-9A66-4E15-9B34-E41E93534CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0B19354-9A66-4E15-9B34-E41E93534CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0B19354-9A66-4E15-9B34-E41E93534CAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C456B7E-6292-494B-AE2D-60D1013A2384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C456B7E-6292-494B-AE2D-60D1013A2384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C456B7E-6292-494B-AE2D-60D1013A2384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C456B7E-6292-494B-AE2D-60D1013A2384}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
