@@ -75,4 +75,15 @@ public class WizardService
         vocals.Add('U', 'A');
         return vocals;
     }
+
+    public string RecursiveAlgorithm(string text, bool reverse = false)
+    {
+        if (text.Length > 0)
+        {
+            var move = reverse ? -2 : 2; 
+            return (char)((int)text[0] + move) + RecursiveAlgorithm(text.Remove(0, 1), reverse);   
+        }
+
+        return "";
+    }
 }

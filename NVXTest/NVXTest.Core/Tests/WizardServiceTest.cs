@@ -29,7 +29,7 @@ public class WizardServiceTest
     }
 
     [TestMethod]
-    public async Task ReverseAlgorithm()
+    public void ReverseAlgorithm()
     {
         var text = GetText();
         var reversedText = GetReversedText();
@@ -40,7 +40,7 @@ public class WizardServiceTest
     }
 
     [TestMethod]
-    public async Task CyclicAlgorithmTest()
+    public void CyclicAlgorithmTest()
     {
         var text = GetTextForCyclicAlgorithm();
         var textChanged = GetTextChangedWithCyclicAlgorithm();
@@ -51,7 +51,7 @@ public class WizardServiceTest
     }
 
     [TestMethod]
-    public async Task CyclicInvertedAlgorithmTest()
+    public void CyclicInvertedAlgorithmTest()
     {
         var text = GetTextForCyclicInvertedAlgorithm();
         var textChanged = GetTextChangedWithCyclicInvertedAlgorithm();
@@ -59,6 +59,55 @@ public class WizardServiceTest
         var resultService = GetServiceCyclicInvertedAlgorithm(text);
         
         SoAreEquals(textChanged, resultService);
+    }
+
+    [TestMethod]
+    public void RecursionAlgorithmTest()
+    {
+        var text = GetText();
+        var textToObtain = GetTextToObtain();
+
+        var resultService = GetSericeRecursiveAlgorithm(text);
+        
+        SoAreEquals(textToObtain, resultService);
+    }
+
+    [TestMethod]
+    public void RecursionReverseAlgorithmTest()
+    {
+        var text = GetTextForRecursiveAlgorithm();
+        var textToObtain = GetTextToObtenForRecursiveAlgorithm();
+
+        var resultService = GetSericeRecursiveReverseAlgorithm(text);
+        
+        SoAreEquals(textToObtain, resultService);
+    }
+
+    private string GetTextToObtenForRecursiveAlgorithm()
+    {
+        return GetText();
+    }
+
+    private string GetTextForRecursiveAlgorithm()
+    {
+        return GetTextToObtain();
+    }
+
+    private string GetSericeRecursiveReverseAlgorithm(string text)
+    {
+        var wizardSerice = new WizardService();
+        return wizardSerice.RecursiveAlgorithm(text, true);
+    }
+
+    private string GetSericeRecursiveAlgorithm(string text)
+    {
+        var wizardSerice = new WizardService();
+        return wizardSerice.RecursiveAlgorithm(text);
+    }
+
+    private string GetTextToObtain()
+    {
+        return "rtwgdc";
     }
 
     private string GetServiceCyclicInvertedAlgorithm(string text)
