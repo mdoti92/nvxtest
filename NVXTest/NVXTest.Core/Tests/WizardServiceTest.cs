@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace NVXTest.Core.Tests;
 
@@ -26,17 +25,6 @@ public class WizardServiceTest
         var resultTextDecrypted = await DecryptText(textToDecrypt);
 
         SoAreEquals(textDecrypted, resultTextDecrypted);
-    }
-
-    [TestMethod]
-    public void ReverseAlgorithm()
-    {
-        var text = GetText();
-        var reversedText = GetReversedText();
-
-        var resultServiceReversed = GetServiceReverseAlgorithm(text);
-        
-        SoAreEquals(reversedText, resultServiceReversed);
     }
 
     [TestMethod]
@@ -146,18 +134,6 @@ public class WizardServiceTest
     private string GetText()
     {
         return "prueba";
-    }
-
-    private string GetServiceReverseAlgorithm(string textToEncrypt)
-    {
-        var wizardService = new WizardService();
-
-        return wizardService.ReverseAlgorithm(textToEncrypt);
-    }
-
-    private string GetReversedText()
-    {
-        return "abeurp";
     }
 
     private async Task<string> DecryptText(string textToDecrypt)

@@ -4,7 +4,7 @@ public class WizardService
 {
     public async Task<string> Encrypt(string textToEncrypt)
     {
-        var textEncrypted = ReverseAlgorithm(textToEncrypt);
+        var textEncrypted = ReverseAlgorithm.ReverseAlgorithm.Get(textToEncrypt);
         textEncrypted = CyclicAlgorithm(textEncrypted);
         textEncrypted = RecursiveAlgorithm(textEncrypted);
         return textEncrypted;
@@ -13,17 +13,9 @@ public class WizardService
     public async Task<string> Decrypt(string text)
     {
         var textDecrypted = RecursiveAlgorithm(text, true);
-        textDecrypted = ReverseAlgorithm(textDecrypted);
+        textDecrypted = ReverseAlgorithm.ReverseAlgorithm.Get(textDecrypted);
         textDecrypted = CyclicAlgorithm(textDecrypted, true);
         return textDecrypted;
-    }
-
-    public string ReverseAlgorithm(string textToEncrypt)
-    {
-        var length = textToEncrypt.Length;
-        
-        return textToEncrypt.Select((t, i) => length - i - 1)
-            .Aggregate("", (current, reverseIndex) => current + textToEncrypt[reverseIndex]);
     }
 
     public string CyclicAlgorithm(string text, bool reverse = false)
