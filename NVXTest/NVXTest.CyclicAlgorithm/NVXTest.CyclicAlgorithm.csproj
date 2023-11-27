@@ -6,16 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-
     <ItemGroup>
-      <PackageReference Include="Moq" Version="4.20.69" />
       <PackageReference Include="MSTest" Version="3.1.1" />
     </ItemGroup>
 
-
-    <ItemGroup>
-      <ProjectReference Include="..\NVXTest.CyclicAlgorithm\NVXTest.CyclicAlgorithm.csproj" />
-      <ProjectReference Include="..\NVXTest.ReverseAlgorithm\NVXTest.ReverseAlgorithm.csproj" />
-    </ItemGroup>
 
 </Project>

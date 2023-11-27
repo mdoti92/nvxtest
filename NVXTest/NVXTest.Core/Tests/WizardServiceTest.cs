@@ -28,28 +28,6 @@ public class WizardServiceTest
     }
 
     [TestMethod]
-    public void CyclicAlgorithmTest()
-    {
-        var text = GetTextForCyclicAlgorithm();
-        var textChanged = GetTextChangedWithCyclicAlgorithm();
-
-        var resultService = GetServiceCyclicAlgorithm(text);
-        
-        SoAreEquals(textChanged, resultService);
-    }
-
-    [TestMethod]
-    public void CyclicInvertedAlgorithmTest()
-    {
-        var text = GetTextForCyclicInvertedAlgorithm();
-        var textChanged = GetTextChangedWithCyclicInvertedAlgorithm();
-
-        var resultService = GetServiceCyclicInvertedAlgorithm(text);
-        
-        SoAreEquals(textChanged, resultService);
-    }
-
-    [TestMethod]
     public void RecursionAlgorithmTest()
     {
         var text = GetText();
@@ -97,40 +75,7 @@ public class WizardServiceTest
     {
         return "rtwgdc";
     }
-
-    private string GetServiceCyclicInvertedAlgorithm(string text)
-    {
-        var wizardService = new WizardService();
-
-        return wizardService.CyclicAlgorithm(text, true);
-    }
-
-    private string GetTextChangedWithCyclicInvertedAlgorithm()
-    {
-        return "maceniworu";
-    }
-
-    private string GetTextForCyclicInvertedAlgorithm()
-    {
-        return "mecinowura";
-    }
-
-    private string GetServiceCyclicAlgorithm(string text)
-    {
-        var wizardService = new WizardService();
-        return wizardService.CyclicAlgorithm(text);
-    }
-
-    private string GetTextForCyclicAlgorithm()
-    {
-        return "maceniworu";
-    }
-
-    private string GetTextChangedWithCyclicAlgorithm()
-    {
-        return "mecinowura";
-    }
-
+    
     private string GetText()
     {
         return "prueba";
