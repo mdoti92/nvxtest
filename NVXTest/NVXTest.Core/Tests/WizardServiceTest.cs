@@ -65,7 +65,7 @@ public class WizardServiceTest
     {
         var wizardService = new WizardService();
 
-        return wizardService.CyclicInvertedAlgorithm(text);
+        return wizardService.CyclicAlgorithm(text, true);
     }
 
     private string GetTextChangedWithCyclicInvertedAlgorithm()

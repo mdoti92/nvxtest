@@ -11,7 +11,7 @@ public class WizardService
 
     public async Task<string> Decrypt(string text)
     {
-        var textDecrypted = CyclicInvertedAlgorithm(text);
+        var textDecrypted = CyclicAlgorithm(text, true);
         textDecrypted = ReverseAlgorithm(textDecrypted);
         return textDecrypted;
     }
@@ -24,53 +24,55 @@ public class WizardService
             .Aggregate("", (current, reverseIndex) => current + textToEncrypt[reverseIndex]);
     }
 
-    public string CyclicAlgorithm(string text)
+    public string CyclicAlgorithm(string text, bool reverse = false)
     {
-        var vocals = new Dictionary<char, char>();
-        vocals.Add('a', 'e');
-        vocals.Add('e', 'i');
-        vocals.Add('i', 'o');
-        vocals.Add('o', 'u');
-        vocals.Add('u', 'a');
+        var vocals = SetUpVocals(reverse);
 
         var result = "";
-        for (int index = 0; index < text.Length; index++)
+        foreach (var t in text)
         {
-            if (vocals.ContainsKey(text[index]))
+            if (vocals.TryGetValue(t, out var vocal))
             {
-                 result += vocals[text[index]];
+                result += vocal;
             }
             else
             {
-                result += text[index];
+                result += t;
             }
         }
 
         return result;
     }
 
-    public string CyclicInvertedAlgorithm(string text)
+    private static Dictionary<char, char> SetUpVocals(bool reverse)
     {
         var vocals = new Dictionary<char, char>();
-        vocals.Add('a', 'u');
-        vocals.Add('e', 'a');
-        vocals.Add('i', 'e');
-        vocals.Add('o', 'i');
-        vocals.Add('u', 'o');
-
-        var result = "";
-        for (int index = 0; index < text.Length; index++)
+        if (reverse)
         {
-            if (vocals.ContainsKey(text[index]))
-            {
-                result += vocals[text[index]];
-            }
-            else
-            {
-                result += text[index];
-            }
+            vocals.Add('a', 'u');
+            vocals.Add('e', 'a');
+            vocals.Add('i', 'e');
+            vocals.Add('o', 'i');
+            vocals.Add('u', 'o');
+            vocals.Add('A', 'U');
+            vocals.Add('E', 'A');
+            vocals.Add('I', 'E');
+            vocals.Add('O', 'I');
+            vocals.Add('U', 'O');
+            
+            return vocals;
         }
-
-        return result;
+        
+        vocals.Add('a', 'e');
+        vocals.Add('e', 'i');
+        vocals.Add('i', 'o');
+        vocals.Add('o', 'u');
+        vocals.Add('u', 'a');
+        vocals.Add('A', 'E');
+        vocals.Add('E', 'I');
+        vocals.Add('I', 'O');
+        vocals.Add('O', 'U');
+        vocals.Add('U', 'A');
+        return vocals;
     }
 }
